@@ -80,17 +80,18 @@ const Checklist = () => {
           <h2
             className={`${lora.className} text-4xl sm:text-5xl md:text-6xl font-bold text-center tracking-tight bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 bg-clip-text text-transparent selection:bg-emerald-800/10`}
           >
-            Mind & Mood Scanner
+            Escáner de Mente y Ánimo
           </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-xl sm:text-2xl text-center leading-relaxed font-light text-gray-700">
-              Take a moment for yourself.
+              Tómate un momento para ti.
             </p>
             <p className="mt-4 text-lg sm:text-xl text-center leading-relaxed text-gray-500">
-              This quick, science-based check-in helps you understand your
-              emotional wellbeing.
+              Esta breve evaluación basada en la ciencia te ayuda a entender tu
+              bienestar emocional.
               <span className="block mt-2 font-light italic">
-                Just answer honestly – there are no right or wrong answers.
+                Solo responde honestamente – no hay respuestas correctas o
+                incorrectas.
               </span>
             </p>
           </div>
@@ -113,7 +114,7 @@ const Checklist = () => {
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              Disclaimer
+              Aviso Legal
             </h3>
             <p className="text-xs text-gray-500 leading-relaxed">
               {disclaimerText}
@@ -173,12 +174,12 @@ const Checklist = () => {
                 : "hover:translate-y-[-2px]"
             }`}
           >
-            Get Your Results
+            Ver Resultados
           </button>
           {Object.keys(answers).length !== checklistItems.length &&
             totalScore === null && (
               <p className="text-sm text-red-600 animate-pulse mt-4">
-                Please answer all questions to see your results
+                Por favor responde todas las preguntas para ver tus resultados
               </p>
             )}
         </div>
@@ -190,10 +191,10 @@ const Checklist = () => {
                 <h3
                   className={`${lora.className} text-2xl font-bold text-gray-900`}
                 >
-                  Your Results
+                  Tus Resultados
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Calculated on: {calculationTimestamp}
+                  Calculado el: {calculationTimestamp}
                 </p>
               </div>
 
