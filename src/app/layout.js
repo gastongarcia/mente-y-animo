@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} antialiased bg-gray-50 text-gray-800`}
       >
-        <div className={`${lora.className}`}>{children}</div>
+        {children}
       </body>
     </html>
   );

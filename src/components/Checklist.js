@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 
 import {
   checklistItems,
@@ -14,7 +14,7 @@ import {
   googleSearchText, // Import Google link text
 } from "@/data/checklistData";
 
-const inter = Inter({
+const lora = Lora({
   subsets: ["latin"],
   display: "swap",
 });
@@ -77,23 +77,19 @@ const Checklist = () => {
     <div className="min-h-screen w-full">
       <div className="w-full sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8 py-8 sm:py-12">
         <header className="space-y-8 mb-12">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center tracking-tight bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 bg-clip-text text-transparent selection:bg-emerald-800/10">
+          <h2
+            className={`${lora.className} text-4xl sm:text-5xl md:text-6xl font-bold text-center tracking-tight bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 bg-clip-text text-transparent selection:bg-emerald-800/10`}
+          >
             Mind & Mood Scanner
           </h2>
           <div className="max-w-2xl mx-auto">
-            <p
-              className={`${inter.className} text-xl sm:text-2xl text-center leading-relaxed font-light text-gray-700`}
-            >
+            <p className="text-xl sm:text-2xl text-center leading-relaxed font-light text-gray-700">
               Take a moment for yourself.
             </p>
-            <p
-              className={`${inter.className} mt-4 text-lg sm:text-xl text-center leading-relaxed text-gray-500`}
-            >
+            <p className="mt-4 text-lg sm:text-xl text-center leading-relaxed text-gray-500">
               This quick, science-based check-in helps you understand your
               emotional wellbeing.
-              <span
-                className={`${inter.className} block mt-2 font-light italic`}
-              >
+              <span className="block mt-2 font-light italic">
                 Just answer honestly – there are no right or wrong answers.
               </span>
             </p>
@@ -103,9 +99,7 @@ const Checklist = () => {
         {/* Disclaimer Section */}
         <div className="mb-12">
           <div className="p-4 border border-gray-200 bg-gray-50/50 rounded-lg">
-            <h3
-              className={`${inter.className} font-medium text-gray-600 mb-2 flex items-center text-sm`}
-            >
+            <h3 className="font-medium text-gray-600 mb-2 flex items-center text-sm">
               <svg
                 className="w-4 h-4 mr-2"
                 fill="none"
@@ -121,9 +115,7 @@ const Checklist = () => {
               </svg>
               Disclaimer
             </h3>
-            <p
-              className={`${inter.className} text-xs text-gray-500 leading-relaxed`}
-            >
+            <p className="text-xs text-gray-500 leading-relaxed">
               {disclaimerText}
             </p>
           </div>
@@ -135,16 +127,16 @@ const Checklist = () => {
               key={item.id}
               className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <p className="text-xl leading-relaxed font-semibold text-violet-900 mb-6">
+              <p
+                className={`${lora.className} text-xl leading-relaxed font-semibold text-violet-900 mb-6`}
+              >
                 {item.question}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 sm:gap-2">
                 {answerOptions.map((option) => (
                   <label
                     key={option.value}
-                    className={`${
-                      inter.className
-                    } flex items-center justify-start p-4 sm:p-3 w-full sm:w-auto rounded-lg border transition-all duration-300 cursor-pointer whitespace-nowrap
+                    className={`flex items-center justify-start p-4 sm:p-3 w-full sm:w-auto rounded-lg border transition-all duration-300 cursor-pointer whitespace-nowrap
                       ${
                         answers[item.id] === option.value
                           ? "border-emerald-500 bg-emerald-50/50 text-emerald-700 shadow-sm"
@@ -175,9 +167,7 @@ const Checklist = () => {
           <button
             onClick={calculateScore}
             disabled={Object.keys(answers).length !== checklistItems.length}
-            className={`${
-              inter.className
-            } w-full sm:w-auto px-8 py-4 text-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium rounded-xl shadow-sm hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 ${
+            className={`w-full sm:w-auto px-8 py-4 text-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium rounded-xl shadow-sm hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 ${
               Object.keys(answers).length !== checklistItems.length
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:translate-y-[-2px]"
@@ -187,9 +177,7 @@ const Checklist = () => {
           </button>
           {Object.keys(answers).length !== checklistItems.length &&
             totalScore === null && (
-              <p
-                className={`${inter.className} text-sm text-red-600 animate-pulse mt-4`}
-              >
+              <p className="text-sm text-red-600 animate-pulse mt-4">
                 Please answer all questions to see your results
               </p>
             )}
@@ -199,41 +187,35 @@ const Checklist = () => {
           <div className="mt-16">
             <div className="p-6 sm:p-8 bg-white rounded-2xl border border-gray-100 shadow-lg space-y-8">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3
+                  className={`${lora.className} text-2xl font-bold text-gray-900`}
+                >
                   Your Results
                 </h3>
-                <p className={`${inter.className} text-sm text-gray-500`}>
+                <p className="text-sm text-gray-500">
                   Calculated on: {calculationTimestamp}
                 </p>
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
-                  <p className={`${inter.className} text-lg text-gray-800`}>
+                  <p className="text-lg text-gray-800">
                     Your total score is{" "}
-                    <span
-                      className={`${inter.className} font-bold text-emerald-700`}
-                    >
+                    <span className="font-bold text-emerald-700">
                       {totalScore}
                     </span>
                   </p>
                 </div>
 
                 <div className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
-                  <p className={`${inter.className} text-lg text-gray-800`}>
-                    <span className={`${inter.className} font-medium`}>
-                      Interpretation:{" "}
-                    </span>
-                    <span className={`${inter.className} text-emerald-700`}>
-                      {interpretation}
-                    </span>
+                  <p className="text-lg text-gray-800">
+                    <span className="font-medium">Interpretation: </span>
+                    <span className="text-emerald-700">{interpretation}</span>
                   </p>
                 </div>
 
                 <div className="sm:col-span-2 p-6 bg-gray-50 rounded-xl border border-gray-100">
-                  <p
-                    className={`${inter.className} text-gray-700 leading-relaxed`}
-                  >
+                  <p className="text-gray-700 leading-relaxed">
                     {professionalHelpText}
                   </p>
                 </div>
@@ -244,13 +226,13 @@ const Checklist = () => {
                   href={googleSearchLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${inter.className} inline-flex justify-center items-center px-6 py-6 sm:py-4 min-w-[200px] bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium rounded-xl hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 hover:translate-y-[-2px]`}
+                  className="inline-flex justify-center items-center px-6 py-6 sm:py-4 min-w-[200px] bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-medium rounded-xl hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 hover:translate-y-[-2px]"
                 >
                   {googleSearchText}
                 </a>
                 <button
                   onClick={() => window.print()}
-                  className={`${inter.className} inline-flex justify-center items-center px-6 py-6 sm:py-4 min-w-[200px] bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300 hover:translate-y-[-2px]`}
+                  className="inline-flex justify-center items-center px-6 py-6 sm:py-4 min-w-[200px] bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all duration-300 hover:translate-y-[-2px]"
                 >
                   <svg
                     className="w-5 h-5 mr-2 shrink-0"
