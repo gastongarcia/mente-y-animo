@@ -56,16 +56,16 @@ const Checklist = () => {
     // Get and format the current date and time
     const now = new Date();
     const formattedTimestamp =
-      now.toLocaleDateString("en-US", {
+      now.toLocaleDateString("es-ES", {
         year: "numeric",
         month: "long",
         day: "numeric",
       }) +
-      " at " +
-      now.toLocaleTimeString("en-US", {
+      " a las " +
+      now.toLocaleTimeString("es-ES", {
         hour: "numeric",
         minute: "2-digit",
-        hour12: true,
+        hour12: false,
       });
 
     setTotalScore(score);
@@ -78,7 +78,7 @@ const Checklist = () => {
       <div className="w-full sm:max-w-7xl sm:mx-auto sm:px-6 lg:px-8 py-8 sm:py-12">
         <header className="space-y-8 mb-12">
           <h2
-            className={`${lora.className} text-4xl sm:text-5xl md:text-6xl font-bold text-center tracking-tight bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 bg-clip-text text-transparent selection:bg-emerald-800/10`}
+            className={`${lora.className} text-4xl sm:text-5xl md:text-6xl font-bold leading-snug text-center tracking-tight bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-800 bg-clip-text text-transparent selection:bg-emerald-800/10`}
           >
             Escáner de Mente y Ánimo
           </h2>
@@ -86,9 +86,10 @@ const Checklist = () => {
             <p className="text-xl sm:text-2xl text-center leading-relaxed font-light text-gray-700">
               Tómate un momento para ti.
             </p>
-            <p className="mt-4 text-lg sm:text-xl text-center leading-relaxed text-gray-500">
+            <p className="mt-4 text-lg sm:text-xl text-center leading-relaxed text-emerald-700">
               Esta breve evaluación basada en la ciencia te ayuda a entender tu
-              bienestar emocional.
+              bienestar emocional. Debes pensar en como has estado la última
+              semana incluyendo hoy.
               <span className="block mt-2 font-light italic">
                 Solo responde honestamente – no hay respuestas correctas o
                 incorrectas.
@@ -201,7 +202,7 @@ const Checklist = () => {
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
                   <p className="text-lg text-gray-800">
-                    Your total score is{" "}
+                    Tu puntaje total es{" "}
                     <span className="font-bold text-emerald-700">
                       {totalScore}
                     </span>
@@ -210,7 +211,7 @@ const Checklist = () => {
 
                 <div className="p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
                   <p className="text-lg text-gray-800">
-                    <span className="font-medium">Interpretation: </span>
+                    <span className="font-medium">Interpretación: </span>
                     <span className="text-emerald-700">{interpretation}</span>
                   </p>
                 </div>
@@ -248,7 +249,7 @@ const Checklist = () => {
                       d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
                     />
                   </svg>
-                  Save Results
+                  Imprimir Resultados
                 </button>
               </div>
             </div>
