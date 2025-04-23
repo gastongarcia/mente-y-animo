@@ -12,13 +12,24 @@ const lora = Lora({
 });
 
 export const metadata = {
-  title: "Mind & Mood Scanner",
-  description: "Quick emotional wellbeing check-in",
+  title: "Escáner de Mente y Ánimo",
+  description: "Evaluación rápida de tu bienestar emocional",
+  openGraph: {
+    title: "Escáner de Mente y Ánimo",
+    description: "Evaluación rápida de tu bienestar emocional",
+    locale: "es_CR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Escáner de Mente y Ánimo",
+    description: "Evaluación rápida de tu bienestar emocional",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${inter.className} antialiased bg-gray-50 text-gray-800`}
       >
